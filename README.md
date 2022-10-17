@@ -25,7 +25,7 @@ Events.Subscribe("IncrementInventoryItem", function(slot)
 end)
 ```
 
-Clientside To Server Remote Calls :
+Client to Server Remote Calls :
 ```lua
 Events.CallRemote("OnItemUsed", sSlotID) -- sSlotID needs to be in lowercase
 Events.CallRemote("MoveItem", sSlotID, iToSlot) -- sSlotID needs to be in lowercase
