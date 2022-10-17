@@ -17,7 +17,7 @@ function CreateUsedSlots()
 	return table
 end
 
-function AddItem(name, icon, metadata, is_stackable, luaevent, deleteafteruse)
+function RegisterItem(name, icon, metadata, is_stackable, luaevent, deleteafteruse)
 	local item = {
 		["name"] = name,
 		["icon"] = icon,
@@ -28,6 +28,7 @@ function AddItem(name, icon, metadata, is_stackable, luaevent, deleteafteruse)
 	}
 	items[item.name] = item
 end
+Package.Export("RegisterItem", RegisterItem)
 
 function GetEmptySlot(player)
 	local usedslots = player:GetValue("inventory_usedslots")
