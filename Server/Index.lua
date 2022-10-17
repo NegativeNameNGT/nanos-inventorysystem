@@ -82,6 +82,17 @@ function GetItemMetadata(item_data)
 	return item_data["metadata"]
 end
 
+function Player:GetItemMetadata(uId)
+	local inventory = self:GetValue("inventory")
+	return inventory[uId].metadata
+end
+
+function Player:SetItemMetadata(uId, newItemMetadata)
+	local inventory = self:GetValue("inventory")
+	inventory[uId].metadata = newItemMetadata
+	self:SetValue("inventory", inventory)
+end
+
 function AddItemQuantity(player, ItemUUID)
 	local inventory = player:GetValue("inventory")
 	local slot = inventory[ItemUUID].slot
@@ -118,7 +129,6 @@ function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, meta
 			end
 		end
 	end
-  Package.Log("Added item to player")
 	local new_item = MakeItemStructure(item_rowname, quantity, metadata, slot)
 	UpdateInventoryItem(player, uuid, new_item)
 	
