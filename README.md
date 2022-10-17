@@ -37,3 +37,10 @@ Giving an item to a player :
 ```lua
 player:AddItemToPlayer("myItem")
 ```
+
+Changing max slots :
+ - Open "config.lua" file
+- Edit the value of "PLAYER_SLOTS"
+```lua
+PLAYER_SLOTS = 64
+```
