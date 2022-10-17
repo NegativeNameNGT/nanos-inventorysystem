@@ -44,6 +44,14 @@ Giving an item to a player :
 player:AddItemToPlayer("myItem")
 ```
 
+Metadata management :
+```lua
+local tMetadata = player:GetItemMetadata(uItemID)
+player:SetItemMetadata(uItemID, tNewMetadata)
+```
+
+
+
 Changing max slots :
  - Open "config.lua" file
 - Edit the value of "PLAYER_SLOTS"
