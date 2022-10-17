@@ -181,10 +181,10 @@ Events.Subscribe("OnItemUsed", function(player, uuid)
 			end
 
 			if item_data["DeleteAfterUse"] ~= true then
-				item_data["LuaEvent"](player, uuid)
+				item_data["LuaEvent"](player, uuid, item_instance.metadata)
 			else
 				if(tonumber(item_instance.quantity) - 1 == 0) then
-					item_data["LuaEvent"](player, uuid)
+					item_data["LuaEvent"](player, uuid, item_instance.metadata)
 					RemoveItemFromInventory(player, uuid)
 				else
 
@@ -194,7 +194,7 @@ Events.Subscribe("OnItemUsed", function(player, uuid)
 					inventory[uuid].quantity = new_quantity
 					player:SetValue("inventory", inventory)
 
-					item_data["LuaEvent"](player, uuid)
+					item_data["LuaEvent"](player, uuid, item_instance.metadata)
 					SavePlayerInventory(player)
 
 					Events.CallRemote("DecrementInventoryItem", player, tonumber(inventory[uuid].slot))
