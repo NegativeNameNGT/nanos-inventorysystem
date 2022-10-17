@@ -35,7 +35,7 @@ Register an item
 ```lua
 RegisterItem(item_id, icon, metadata, bStackable, func, delete_once_used)
 
-RegisterItem("myItem", "icon_path", {["rarity"] = "standard"}, false, function(player, uItemId)
+RegisterItem("myItem", "icon_path", {["rarity"] = "standard"}, false, function(player, uItemId, tItemMetadata)
    -- item behavior
 end, true)
 ```
