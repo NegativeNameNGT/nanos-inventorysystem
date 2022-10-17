@@ -29,7 +29,7 @@ Register an item
 ```lua
 RegisterItem(item_id, icon, metadata, func, delete_once_used)
 
-RegisterItem("myItem", "chemin_vers_icon", {["rarity"] = "standard"}, function(player, itemid)
+RegisterItem("myItem", "icon_path", {["rarity"] = "standard"}, function(player, uItemId)
    -- item behavior
 end, true)
 ```
