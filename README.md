@@ -25,6 +25,12 @@ Events.Subscribe("IncrementInventoryItem", function(slot)
 end)
 ```
 
+Clientside To Server Remote Calls :
+```lua
+Events.CallRemote("OnItemUsed", sSlotID) -- sSlotID needs to be in lowercase
+Events.CallRemote("MoveItem", sSlotID, iToSlot) -- sSlotID needs to be in lowercase
+```
+
 Register an item
 ```lua
 RegisterItem(item_id, icon, metadata, func, delete_once_used)
