@@ -33,9 +33,9 @@ Events.CallRemote("MoveItem", sSlotID, iToSlot) -- sSlotID needs to be in lowerc
 
 Register an item
 ```lua
-RegisterItem(item_id, icon, metadata, func, delete_once_used)
+RegisterItem(item_id, icon, metadata, bStackable, func, delete_once_used)
 
-RegisterItem("myItem", "icon_path", {["rarity"] = "standard"}, function(player, uItemId)
+RegisterItem("myItem", "icon_path", {["rarity"] = "standard"}, false, function(player, uItemId)
    -- item behavior
 end, true)
 ```
