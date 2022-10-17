@@ -93,7 +93,7 @@ function AddItemQuantity(player, ItemUUID)
 end
 
 -- SERVER ADD ITEM
-function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, save)
+function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, metadata, save)
   local player = self
 
 	local item_data
@@ -103,6 +103,7 @@ function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, save
 	item_data = items[item_rowname]
 	if uuid == nil then uuid = generateUUID():lower():gsub('%-', '') end
 	if slot == nil then slot = GetEmptySlot(player) - 1 end
+	if metadata == nil then metadata = item_data["metadata"] end
 
 	if IsItemStackable(item_data) == true then
 		
@@ -118,7 +119,7 @@ function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, save
 		end
 	end
   Package.Log("Added item to player")
-	local new_item = MakeItemStructure(item_rowname, quantity, item_data["metadata"], slot)
+	local new_item = MakeItemStructure(item_rowname, quantity, metadata, slot)
 	UpdateInventoryItem(player, uuid, new_item)
 	
 	SetSlotState(player, slot, "used")
@@ -130,7 +131,7 @@ function Player:AddItemToPlayer(item_rowname, isload, slot, quantity, uuid, save
 			["uuid"] = uuid,
 			["slot"] = slot,
 			["item_icon"] = GetItemIcon(item_data),
-      ["metadata"] = GetItemMetadata(item_data),
+      			["metadata"] = metadata,
 			["quantity"] = quantity,
 			["IsItemStackable"] = IsItemStackable(item_data)
 		}
