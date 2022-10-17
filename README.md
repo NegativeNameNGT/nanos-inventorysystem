@@ -27,9 +27,9 @@ end)
 
 Register an item
 ```lua
-AddItem(item_id, icon, metadata, func, delete_once_used)
+RegisterItem(item_id, icon, metadata, func, delete_once_used)
 
-AddItem("myItem", "chemin_vers_icon", {["rarity"] = "standard"}, function(player, itemid)
+RegisterItem("myItem", "chemin_vers_icon", {["rarity"] = "standard"}, function(player, itemid)
    -- item behavior
 end, true)
 ```
